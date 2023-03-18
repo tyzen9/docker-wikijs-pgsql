@@ -5,6 +5,9 @@ Use this command to start the Docker compose
 ```
 docker-compose up
 ```
+> **Note**
+> After using 'docker-compose up', 'start' and 'stop' commands may be used.
+
 
 > **Note**
 > The Wiki and PostgreSQL containers are set to restart on server reboot so long as they were not stopped before the reboot takes place
