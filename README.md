@@ -3,7 +3,7 @@ Linux based Docker container for Wiki.js and PostgreSQL
 
 Use this command to start the Docker compose
 ```
-docker-compose start
+docker-compose up
 ```
 
 > **Note**
