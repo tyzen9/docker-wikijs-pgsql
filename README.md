@@ -40,21 +40,27 @@ This command can be used to obtain PostgreSQL database dumps where `docker-wikij
 ```
 
 ### Restore DB Commands
+1. Stop Wiki.js from accessing the database
 
-1. Drop the existing database, and create a new one
+- Get the Wiki.js container id using `docker ps`
+- Stop the container using `docker container stop <id>`
+
+2. Drop the existing database, and create a new one
 ``` 
     > docker exec -it docker-wikijs-pgsql-db-1 dropdb -U wikijs wiki
     > docker exec -it docker-wikijs-pgsql-db-1 createdb -U wikijs wiki
 ```
-2. Make a directory in the container to hold the backup
+3. Make a directory in the container to hold the backup
 ``` 
     > docker exec -i docker-wikijs-pgsql-db-1 mkdir /backups
 ```
-3. Copy the dump file to the container
+4. Copy the dump file to the container
 ```
     > docker cp .\wikijs_pg_dump.tar docker-wikijs-pgsql-db-1:/backups/.
 ```
-4. Restore the backup in the container
+5. Restore the backup in the container
 ```
     > docker exec -i docker-wikijs-pgsql-db-1 pg_restore -U wikijs -d wiki /backups/wikijs_pg_dump.tar
 ```
+6. Start Wiki.js up again
+- Start the container using `docker container start <id>`
