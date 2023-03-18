@@ -11,5 +11,5 @@ Docker container for wiki.js and PostgreSQL
 ```
 Wiki.js itself runs on port 3000.  This container listens to requests on port 8081 and then routes the request to port 3000. 
 
-**Note**
-Ideally, a reverse-proxy sits infront of the container routing traffic to the 8081 port.
+> **Note**
+> Ideally, a reverse-proxy sits infront of the container routing traffic to the 8081 port.
