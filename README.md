@@ -1,6 +1,18 @@
 # docker-wikijs-pgsql
-Linux based Docker container for Wiki.js and PostgreSQL
+Linux based Docker container for Wiki.js and PostgreSQL.
 
+## Prerequisites
+Install [Docker Engine](https://docs.docker.com/get-docker/) and [Docker Compose](V) as standalone binaries <br>
+-or- <br>
+Install [Docker Desktop](https://docs.docker.com/desktop/) which includes both Docker Engine and Docker Compose
+
+## Usage
+1. Clone this repository: `git clone https://github.com/stheisen/docker-wikijs-pgsql.git`
+1. Rename the resulting directory to reflect the name of your site
+1. Modify docker-compose to fit your needs (pot numbers, usernames/passwords, volume names, etc)
+1. Start the container using `docker-compose up`
+
+### Docker Commands
 Use this command to start the Docker compose
 ```
 docker-compose up
