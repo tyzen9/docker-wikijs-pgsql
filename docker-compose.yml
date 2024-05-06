@@ -18,7 +18,7 @@ services:
     # Uncomment this section to expose mysql to connections outside of the container
     # such as MySQL Workbench
     # -------------------------------------------------------------------------------
-    #ports:
+    # ports:
     #  - ${POSTGRES_EXTERNAL_PORT}:5432
 
   wiki:
