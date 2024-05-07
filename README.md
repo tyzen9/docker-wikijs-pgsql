@@ -49,7 +49,7 @@ docker exec -i <DOCKER_CONTAINER_ID> pg_dump -U <POSTGRES_USER> -F t <POSTGRES_D
 ```
 
 - Create a shell script containing the properly formatted command for your environment, and use a `root` cronjob to schedule these backups.
-- The resulting `db_backup.sql.tar` file should be stored on a routinely backed up remove filesystem.
+- The resulting `db_backup.sql.tar` file should be stored on a routinely backed up remote filesystem.
 
 ## Postgres Restore
 1. From the host machine, rop the existing database, and create a new/empty database with the same name
@@ -75,3 +75,16 @@ docker compose down
 docker compose up
 ```
 4. Visit the wiki at: `http://host_name::WIKIJS_EXTERNAL_PORT`;
+
+## Production Deployment using Portainer
+I use [Portainer](https://www.portainer.io/) to manage and orchestrate my Docker resources in my Production environments. To deploy this into your Portainer environment:
+
+1. Prepare a `.env` file for the Portainer environment
+2. In Portainer, choose the Environment to deploy to
+3. In the left menu choose Stacks, then click `+ Add stack`
+4. Give the stack a meaningful name.
+5. Choose `Repository` and fill in the required fields
+6. At the bottom, there is an option to `Load variables from .env file`. Click this button and provide the prepared `.env` file for this environment.
+7. Click `Deploy the stack`
+
+Once successfully deployed, you will be able to access the site at: `http://host_name:<PIWIGO_EXTERNAL_PORT>`.
