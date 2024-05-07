@@ -45,11 +45,11 @@ When running Postgres from a docker container, it is especially important to hav
 > To get the Wiki.js container `DOCKER_CONTAINER_ID`, run this command from the host: `docker ps`
 
 ```
-docker exec -i <DOCKER_CONTAINER_ID> pg_dump -U <POSTGRES_USER> -F t <POSTGRES_DATABASE> > db_backup.sql.tar
+docker exec -i <DOCKER_CONTAINER_ID> pg_dump -U <POSTGRES_USER> -F t <POSTGRES_DATABASE> > db_backup.tar
 ```
 
 - Create a shell script containing the properly formatted command for your environment, and use a `root` cronjob to schedule these backups.
-- The resulting `db_backup.sql.tar` file should be stored on a routinely backed up remote filesystem.
+- The resulting `db_backup.tar` file should be stored on a routinely backed up remote filesystem.
 
 ## Postgres Restore
 1. From the host machine, rop the existing database, and create a new/empty database with the same name
@@ -67,7 +67,7 @@ docker exec -it <DOCKER_CONTAINER_ID> createdb -U <POSTGRES_USER> <POSTGRES_DATA
 
 2. From the host, `cat` the database backup in to the pg_restore command
 ```
-cat db_backup.sql.tar | docker exec -i <DOCKER_CONTAINER_ID> pg_restore -U <POSTGRES_USER> -d <POSTGRES_DATABASE>
+cat db_backup.tar | docker exec -i <DOCKER_CONTAINER_ID> pg_restore -U <POSTGRES_USER> -d <POSTGRES_DATABASE>
 ```
 3. Restart the compose instance
 ```
